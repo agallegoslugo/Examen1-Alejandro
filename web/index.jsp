@@ -5,7 +5,7 @@
     Created on : 27/08/2014, 12:21:47 PM
     Author     : agallegos
 --%>
-<sql:query var="subjects" dataSource="jdbc/Alejandro">
+<sql:query var="Carrera" dataSource="jdbc/Alejandro">
     SELECT ClaveCarrera, NombreCarrera FROM carrera
 </sql:query>
 
@@ -32,8 +32,8 @@
                 <tr>
                     <td><form action="response.jsp">
                             <strong>Selecciona Carrera:</strong>
-                            <select name="Subject_id">
-                                <c:forEach var="row" items="${subjects.rows}">
+                            <select name="Carrera_ClaveCarrera">
+                                <c:forEach var="row" items="${Carrera.rows}">
                                     <option value="${row.ClaveCarrera}">${row.NombreCarrera}</option>
                                 </c:forEach>
                             </select>
