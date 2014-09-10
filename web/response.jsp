@@ -7,9 +7,10 @@
 --%>
 
 <sql:query var="DirectorQuery" dataSource="jdbc/Alejandro">
-    SELECT Nombre, Carrera FROM Director, Carrera
-    WHERE Carrera.ClaveCarrera = Director.Carrera
-    AND Director.NumDirector= ? <sql:param value="${param.NumDirector}"/>
+    SELECT * FROM Director, Carrera
+    WHERE Director.Carrera = Carrera.ClaveCarrera;
+    
+
 </sql:query>
 
 <c:set var="DirectorDetails" value="${DirectorQuery.rows[0]}"/>
@@ -26,11 +27,11 @@
     <body>
         <table>
             <tr>
-                <th colspan="2">${DirectorDetails.Nombre}</th>
+                <th colspan="2">${DirectorDetails.Carrera}</th>
             </tr>
             <tr>
-                <td><strong>Carrera </strong></td>
-                <td><strong>${DirectorDetails.Carrera}</strong></td>
+                <td><strong>Director </strong></td>
+                <td><strong>${DirectorDetails.Nombre}</strong></td>
             </tr>
         </table>
     </body>
